@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ClassAdd</class>
+ <widget class="QDialog" name="ClassAdd">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QFormLayout" name="formLayout">
+   <item row="0" column="0">
+    <widget class="QLabel" name="nameLabel">
+     <property name="text">
+      <string>Назва запчастини</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QLineEdit" name="nameEdit"/>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="carBrandLabel">
+     <property name="text">
+      <string>Марка</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QLineEdit" name="carBrandEdit"/>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="carModelLabel">
+     <property name="text">
+      <string>Модель</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QLineEdit" name="carModelEdit"/>
+   </item>
+   <item row="3" column="0">
+    <widget class="QLabel" name="carYearLabel">
+     <property name="text">
+      <string>Рік випуску</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
+    <widget class="QLineEdit" name="carYearEdit"/>
+   </item>
+   <item row="4" column="0">
+    <widget class="QLabel" name="inStockLabel">
+     <property name="text">
+      <string>Наявна кількість</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="1">
+    <widget class="QLineEdit" name="inStockEdit"/>
+   </item>
+   <item row="5" column="0">
+    <widget class="QLabel" name="priceLabel">
+     <property name="text">
+      <string>Вартість</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="1">
+    <widget class="QLineEdit" name="priceEdit"/>
+   </item>
+   <item row="10" column="1">
+    <widget class="QPushButton" name="buttonDecline">
+     <property name="text">
+      <string>Скасувати</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="0">
+    <widget class="QLabel" name="stateLabel">
+     <property name="text">
+      <string>Стан</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="1">
+    <widget class="QComboBox" name="categoryBox"/>
+   </item>
+   <item row="7" column="0">
+    <widget class="QLabel" name="categoryLabel">
+     <property name="text">
+      <string>Категорія</string>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="1">
+    <widget class="QPushButton" name="buttonOk">
+     <property name="text">
+      <string>Ок</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="1">
+    <widget class="QComboBox" name="stateBox"/>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonDecline</sender>
+   <signal>clicked()</signal>
+   <receiver>ClassAdd</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>381</x>
+     <y>282</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>383</x>
+     <y>295</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

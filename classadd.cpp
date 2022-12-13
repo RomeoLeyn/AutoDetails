@@ -8,20 +8,20 @@ ClassAdd::ClassAdd(QWidget *parent) :
 {
     ui->setupUi(this);
     //connect(ClassAdd::hide,&QPushButton::clicked,this,&MainWindow::insertInfo);
-    db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("./autoDB.db");
+//    db = QSqlDatabase::addDatabase("QSQLITE");
+//    db.setDatabaseName("./autoDB.db");
 
-    query = new QSqlQuery(db);
+//    query = new QSqlQuery(db);
 
 
-    if(db.open())
-    {
-        qDebug("Open class add");
-    }
-    else
-    {
-        qDebug("No open class ad");
-    }
+//    if(db.open())
+//    {
+//        qDebug("Open class add");
+//    }
+//    else
+//    {
+//        qDebug("No open class ad");
+//    }
 
     ui->categoryBox->addItem("",QVariant(0));
     ui->categoryBox->addItem("Двигун",QVariant(1));
@@ -58,42 +58,44 @@ void ClassAdd::on_buttonOk_clicked()
     this->category=ui->categoryBox->itemText(ComboBoxIndex);
 
 
-    QString insertQuery = "INSERT INTO Auto_details("
-                          "detail_name,"
-                          "car_brand,"
-                          "car_model,"
-                          "car_year,"
-                          "in_stock,"
-                          "price,"
-                          "detail_state,"
-                          "category)"
-                          "VALUES(?,?,?,?,?,?,?,?);";
+//    QString insertQuery = "INSERT INTO Auto_details("
+//                          "detail_name,"
+//                          "car_brand,"
+//                          "car_model,"
+//                          "car_year,"
+//                          "in_stock,"
+//                          "price,"
+//                          "detail_state,"
+//                          "category)"
+//                          "VALUES(?,?,?,?,?,?,?,?);";
 
 
-    query->prepare(insertQuery);
+//    query->prepare(insertQuery);
 
-    query->addBindValue(name);
-    query->addBindValue(brand);
-    query->addBindValue(model);
-    query->addBindValue(year);
-    query->addBindValue(in_Stock);
-    query->addBindValue(price);
-    query->addBindValue(detail_state);
-    query->addBindValue(category);
+//    query->addBindValue(name);
+//    query->addBindValue(brand);
+//    query->addBindValue(model);
+//    query->addBindValue(year);
+//    query->addBindValue(in_Stock);
+//    query->addBindValue(price);
+//    query->addBindValue(detail_state);
+//    query->addBindValue(category);
 
-    qDebug()<<detail_state;
+//    qDebug()<<detail_state;
 
-    if(!query->exec())
-    {
-        qDebug()<<"Error entering data";
-    }
+//    if(!query->exec())
+//    {
+//        qDebug()<<"Error entering data";
+//    }
 
-    else
-    {
-        qDebug()<<"Succses";
-        this->close();
-    }
+//    else
+//    {
+//        qDebug()<<"Succses";
+//        this->close();
+//    }
 
+
+   dataBase.insert(name, brand, model, year, in_Stock, price, detail_state, category);
 }
 
 

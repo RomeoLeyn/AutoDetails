@@ -10,16 +10,20 @@ CONFIG += c++17
 
 SOURCES += \
     classadd.cpp \
+    dbmanager.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     classadd.h \
+    dbmanager.h \
     mainwindow.h
 
 FORMS += \
     classadd.ui \
     mainwindow.ui
+
+win32:RC_FILE = file.rc
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

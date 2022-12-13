@@ -13,29 +13,31 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
 
-    db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("./autoDB.db");
+//    db = QSqlDatabase::addDatabase("QSQLITE");
+//    db.setDatabaseName("./autoDB.db");
 
-    if(db.open())
-    {
-        qDebug("Open window cpp");
-    }
-    else
-    {
-        qDebug("No open window cpp");
-    }
+//    if(db.open())
+//    {
+//        qDebug("Open window cpp");
+//    }
+//    else
+//    {
+//        qDebug("No open window cpp");
+//    }
 
-    query = new QSqlQuery(db);
-    query->exec("CREATE TABLE Auto_details("
-                "detail_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
-                " datail_name varchar(50) not null,"
-                " car_brand varchar(30) not null,"
-                " car_model varchar(50) not null,"
-                " car_year integer not null,"
-                " in_stock integer not null,"
-                " price float not null, "
-                " detail_state varchar(5) not null,"
-                " category varchar(30) not null);");
+//    query = new QSqlQuery(db);
+//    query->exec("CREATE TABLE Auto_details("
+//                "detail_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
+//                " datail_name varchar(50) not null,"
+//                " car_brand varchar(30) not null,"
+//                " car_model varchar(50) not null,"
+//                " car_year integer not null,"
+//                " in_stock integer not null,"
+//                " price float not null, "
+//                " detail_state varchar(5) not null,"
+//                " category varchar(30) not null);");
+
+    dataBase.createAutoDB();
 
     model = new QSqlTableModel(this,db);
     model->setTable("Auto_details");
@@ -45,18 +47,18 @@ MainWindow::MainWindow(QWidget *parent)
 
     viewOfTable();
 
-//    ui->categoryBox->addItem("Двигун",QVariant(1));
-//    ui->categoryBox->addItem("Підвіска",QVariant(2));
-//    ui->categoryBox->addItem("Кузов",QVariant(3));
-//    ui->categoryBox->addItem("Трансмісія",QVariant(4));
-//    ui->categoryBox->addItem("Електрика",QVariant(5));
-//    ui->categoryBox->addItem("Гальмівна система",QVariant(6));
-//    ui->categoryBox->addItem("ТО",QVariant(7));
-//    ui->categoryBox->addItem("Рульова система",QVariant(8));
-//    ui->categoryBox->addItem("Система охолодження",QVariant(9));
-//    ui->categoryBox->addItem("Фільтри",QVariant(10));
-//    ui->categoryBox->addItem("Шасі",QVariant(11));
-//    connect(ui->categoryBox,&QComboBox::currentIndexChanged,this,&MainWindow::setCategoryBox);//конект для пошуку за категорією
+    //    ui->categoryBox->addItem("Двигун",QVariant(1));
+    //    ui->categoryBox->addItem("Підвіска",QVariant(2));
+    //    ui->categoryBox->addItem("Кузов",QVariant(3));
+    //    ui->categoryBox->addItem("Трансмісія",QVariant(4));
+    //    ui->categoryBox->addItem("Електрика",QVariant(5));
+    //    ui->categoryBox->addItem("Гальмівна система",QVariant(6));
+    //    ui->categoryBox->addItem("ТО",QVariant(7));
+    //    ui->categoryBox->addItem("Рульова система",QVariant(8));
+    //    ui->categoryBox->addItem("Система охолодження",QVariant(9));
+    //    ui->categoryBox->addItem("Фільтри",QVariant(10));
+    //    ui->categoryBox->addItem("Шасі",QVariant(11));
+    //    connect(ui->categoryBox,&QComboBox::currentIndexChanged,this,&MainWindow::setCategoryBox);//конект для пошуку за категорією
 
     this->setCategoryItems();
     this->setCarBrandItems();
@@ -133,8 +135,21 @@ void MainWindow::viewOfTable()
 
 void MainWindow::on_deleteButton_clicked()
 {
-    model->removeRow(row);
-    model->select();
+
+    QMessageBox::StandardButton deleterow;
+
+    deleterow = QMessageBox::question(this, "Тест", "Ви дійсно хочете видалити дані?",
+                                      QMessageBox::Yes|QMessageBox::Cancel);
+
+    if (deleterow == QMessageBox::Yes)
+    {
+        model->removeRow(row);
+        model->select();
+    }
+    if (deleterow == QMessageBox::Cancel)
+    {
+
+    }
 }
 
 

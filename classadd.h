@@ -10,6 +10,8 @@
 #include<QSqlTableModel>
 #include<QComboBox>
 
+#include"dbmanager.h"
+
 namespace Ui {
 class ClassAdd;
 }
@@ -44,6 +46,8 @@ private:
     float price;
     QString detail_state;
     QString category;
+
+    DBManager dataBase;
 
     QSqlDatabase db;
     QSqlQuery *query;

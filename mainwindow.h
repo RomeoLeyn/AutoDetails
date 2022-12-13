@@ -10,6 +10,7 @@
 #include<QSqlQueryModel >
 
 #include"classadd.h"
+#include"dbmanager.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -53,6 +54,8 @@ private slots:
 
 
 
+
+
     //void on_carSearchButton_clicked();
 
 private:
@@ -62,11 +65,15 @@ private:
     QSqlTableModel *model;
     ClassAdd *addWindow;
 
+    DBManager dataBase;
+
     QString categoryToSearch;
     QString carBrandToSearch;
     int categoryBoxIndex;
     int carBrandIndex;
     int row;
+
+
 
 };
 #endif // MAINWINDOW_H

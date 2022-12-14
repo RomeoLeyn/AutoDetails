@@ -48,14 +48,15 @@ ClassAdd::~ClassAdd()
 
 void ClassAdd::on_buttonOk_clicked()
 {
-    this->name = ui->nameEdit->text();
-    this->brand = ui->carBrandEdit->text();
-    this->model = ui->carModelEdit->text();
-    this->year = ui->carYearEdit->text().toInt();
-    this->in_Stock = ui->inStockEdit->text().toInt();
-    this->price = ui->priceEdit->text().toDouble();
-    this->detail_state = ui->stateBox->itemText(stateBoxIndex);
-    this->category=ui->categoryBox->itemText(ComboBoxIndex);
+    AutoDetail autoDetail;
+    autoDetail.setName(ui->nameEdit->text());
+    autoDetail.setBrand(ui->carBrandEdit->text());
+    autoDetail.setModel(ui->carModelEdit->text());
+    autoDetail.setYear(ui->carYearEdit->text().toInt());
+    autoDetail.setInStock(ui->inStockEdit->text().toInt());
+    autoDetail.setPrice(ui->priceEdit->text().toDouble());
+    autoDetail.setDetailState(ui->stateBox->itemText(stateBoxIndex));
+    autoDetail.setCategory(ui->categoryBox->itemText(ComboBoxIndex));
 
 
 //    QString insertQuery = "INSERT INTO Auto_details("
@@ -95,7 +96,8 @@ void ClassAdd::on_buttonOk_clicked()
 //    }
 
 
-   dataBase.insert(name, brand, model, year, in_Stock, price, detail_state, category);
+
+   dataBase.insert(autoDetail);
 }
 
 

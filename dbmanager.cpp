@@ -44,7 +44,7 @@ void DBManager::createAutoDB()
 
 
 
-bool  DBManager::insert(QString &name, QString &brand, QString &model, int &year, int &in_Stock, float &price, QString &detail_state, QString &category) const
+bool  DBManager::insert(AutoDetail autoDetail)
 {
     QString insertQuery = "INSERT INTO Auto_details("
                           "detail_name,"
@@ -60,14 +60,14 @@ bool  DBManager::insert(QString &name, QString &brand, QString &model, int &year
 
     query->prepare(insertQuery);
 
-    query->addBindValue(name);
-    query->addBindValue(brand);
-    query->addBindValue(model);
-    query->addBindValue(year);
-    query->addBindValue(in_Stock);
-    query->addBindValue(price);
-    query->addBindValue(detail_state);
-    query->addBindValue(category);
+    query->addBindValue(autoDetail.getName());
+    query->addBindValue(autoDetail.getBrand());
+    query->addBindValue(autoDetail.getModel());
+    query->addBindValue(autoDetail.getYear());
+    query->addBindValue(autoDetail.getInStock());
+    query->addBindValue(autoDetail.getPrice());
+    query->addBindValue(autoDetail.getDetail_state());
+    query->addBindValue(autoDetail.getCategory());
 
 
 

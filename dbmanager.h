@@ -6,6 +6,8 @@
 #include <QSqlQuery> // бібліотека для запиту до баз даних
 #include <QtSql>
 
+#include "autodetail.h"
+
 class DBManager
 {
 
@@ -22,7 +24,11 @@ public:
 
 //    QSqlDatabase returnAutoDB();
 
-    bool insert(QString &name, QString &brand, QString &model, int &year, int &in_Stock, float &price, QString &detail_state, QString &category) const;
+    //bool insert(QString &name, QString &brand, QString &model, int &year, int &in_Stock, float &price, QString &detail_state, QString &category) const;
+
+    bool insert(AutoDetail autoDetail);
+
+
 };
 
 #endif // DBMANAGER_H

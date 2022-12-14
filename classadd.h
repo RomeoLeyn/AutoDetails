@@ -38,14 +38,7 @@ private slots:
 private:
     Ui::ClassAdd *ui;
 
-    QString name;
-    QString brand;
-    QString model;
-    int year;
-    int in_Stock;
-    float price;
-    QString detail_state;
-    QString category;
+
 
     DBManager dataBase;
 
